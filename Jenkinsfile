@@ -39,7 +39,9 @@ pipeline {
     }
     stage('Deploy to Kubernetes') {
       steps {
-        script {            
+        script {
+            sh "hostname"
+            sh "pwd"
             sh "kubectl apply -f bluewhale.yml"
         }
       }
