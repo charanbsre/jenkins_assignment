@@ -41,7 +41,7 @@ pipeline {
             steps {
                 sh 'mkdir ~/.kube'
                 copy {
-                    from: '/var/lib/jenkins/workspace/pipeProj/config',
+                    from: 'config',
                     to: '~/.kube/config'
                 }
             }
