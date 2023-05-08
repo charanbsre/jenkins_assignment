@@ -38,13 +38,15 @@ pipeline {
       }
     }
     stage('Deploy to Kubernetes') {
-      steps {        
-          kubernetesDeploy(
+      steps {
+        withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'https://nextopsaks01-dns-g49pt1dh.hcp.eastus.azmk8s.io']) {
+            kubernetesDeploy(
             kubeconfigId: 'kubeconfig',
             configs: 'hellowhale.yml',
             enableConfigSubstitution: true,
             recreate: true
-          )        
+          )
+        }  
       }
     }
   }
