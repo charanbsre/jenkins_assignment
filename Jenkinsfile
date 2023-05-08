@@ -10,6 +10,7 @@ pipeline {
                 docker {
                     image 'narayanacharan/jenkins-slave:2.0'
                     label 'java-docker-slave'
+                    args '-v $HOME/.kube/config:/root/.kube/config'
                 }
       }
       steps {
@@ -36,15 +37,6 @@ pipeline {
           }
         }
       }
-    }
-    stage('Copy kubeconfig') {
-            steps {
-                sh 'mkdir ~/.kube'
-                copy {
-                    from: 'config',
-                    to: '~/.kube/config'
-                }
-            }
     }
     stage('Deploy to Kubernetes') {
       steps {
