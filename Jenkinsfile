@@ -40,7 +40,7 @@ pipeline {
     }
     stage('Deploy to Kubernetes') {
       steps {
-        withKubeConfig([credentialsId: 'kubeconfig-id']) {
+        withKubeConfig([credentialsId: 'kubeconfig']) {
           kubernetesDeploy(
             kubeconfigId: 'kubeconfig',
             configs: 'hellowhare.yml',
