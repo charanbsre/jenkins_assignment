@@ -2,7 +2,6 @@ pipeline {
   environment {
     dockerimagename = "narayanacharan/react-app-00"
     dockerImage = ""
-    KUBECONFIG = credentials('kubeconfig')
   }
   agent none
   stages {
