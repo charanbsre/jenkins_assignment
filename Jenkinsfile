@@ -42,6 +42,8 @@ pipeline {
         script {
             sh "hostname"
             sh "pwd"
+            sh "kubectl config get-contexts"
+            sh "kubectl config set-context NextOpsAKS01"
             sh "kubectl apply -f bluewhale.yml"
         }
       }
