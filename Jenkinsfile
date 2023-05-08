@@ -37,5 +37,17 @@ pipeline {
         }
       }
     }
+    stage('Deploy to Kubernetes') {
+      steps {
+        withKubeConfig([credentialsId: 'kubeconfig']) {
+          kubernetesDeploy(
+            kubeconfigId: 'kubeconfig',
+            configs: 'hellowhale.yml',
+            enableConfigSubstitution: true,
+            recreate: true
+          )
+        }
+      }
+    }
   }
 }
