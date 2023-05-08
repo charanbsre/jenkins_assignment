@@ -3,7 +3,7 @@ pipeline {
     dockerimagename = "narayanacharan/react-app-00"
     dockerImage = ""
   }
-  agent none
+  agent any
   stages {
     stage('Checkout Source') {
       agent {
