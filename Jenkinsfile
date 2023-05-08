@@ -2,7 +2,7 @@ pipeline {
   environment {
     dockerimagename = "narayanacharan/react-app-00"
     dockerImage = ""
-    SECRET_KEY = credentials('secret-key')
+    KUBECONFIG = credentials('kubeconfig')
   }
   agent none
   stages {
@@ -38,10 +38,15 @@ pipeline {
         }
       }
     }
-    stage('Deploy to K8S') {
+    stage('Deploy to Kubernetes') {
       steps {
-        script {
-          kubernetesDeploy(configs: "hellowhale.yml", kubeconfigId: "kubeconfig")
+        withKubeConfig([credentialsId: 'kubeconfig-id']) {
+          kubernetesDeploy(
+            kubeconfigId: 'kubeconfig',
+            configs: 'hellowhare.yml',
+            enableConfigSubstitution: true,
+            recreate: true
+          )
         }
       }
     }
