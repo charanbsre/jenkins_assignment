@@ -38,10 +38,11 @@ pipeline {
         }
       }
     }
-    stage('Foo') {
+    stage('Deploy to K8S') {
       steps {
-        echo SECRET_KEY
-        echo SECRET_KEY.substring(0, SECRET_KEY.size() -1) // shows the right secret was loaded, don't do this for real secrets unless you're debugging 
+        script {
+          kubernetesDeploy(configs: "hellowhale.yml", kubeconfigId: "kubeconfig")
+        }
       }
     }
   }
