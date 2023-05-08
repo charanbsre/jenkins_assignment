@@ -8,7 +8,7 @@ pipeline {
     stage('Checkout Source') {
       agent {
                 docker {
-                    image 'narayanacharan/jenkins-slave:6.0'
+                    image 'narayanacharan/jenkins-slave:7.0'
                     label 'java-docker-slave'                    
                 }
       }
