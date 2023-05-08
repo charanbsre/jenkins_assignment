@@ -8,9 +8,8 @@ pipeline {
     stage('Checkout Source') {
       agent {
                 docker {
-                    image 'narayanacharan/jenkins-slave:3.0'
-                    label 'java-docker-slave'
-                    args '-v $HOME/.kube/config:/root/.kube/config'
+                    image 'narayanacharan/jenkins-slave:4.0'
+                    label 'java-docker-slave'                    
                 }
       }
       steps {
