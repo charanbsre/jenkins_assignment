@@ -42,11 +42,10 @@ pipeline {
         script {
             sh "hostname"
             sh "pwd"
-            sh 'export PATH=$PATH:/usr/bin/az'
-            sh 'cd /usr/bin'
-            sh "./az login --service-principal -u 1ee02188-99db-424b-bf71-11772c7da4c5 -p Mfj8Q~SEeIdynNyTCCuKrQdfAa15i5BdRCzTEaFV --tenant 9085ff8c-8807-4ff8-a403-ea470525cda6"
-            sh "./az account set --subscription a355c32e-4a22-4b05-aab4-be236850fa6e"
-            sh "./az aks get-credentials --resource-group NextOps --name NextOpsAKS01"
+            sh 'install -o root -g root -m 0755 /usr/bin/az /usr/local/bin/az'
+            sh "az login --service-principal -u 1ee02188-99db-424b-bf71-11772c7da4c5 -p Mfj8Q~SEeIdynNyTCCuKrQdfAa15i5BdRCzTEaFV --tenant 9085ff8c-8807-4ff8-a403-ea470525cda6"
+            sh "az account set --subscription a355c32e-4a22-4b05-aab4-be236850fa6e"
+            sh "az aks get-credentials --resource-group NextOps --name NextOpsAKS01"
             sh "kubectl config get-contexts"
             sh "kubectl config set-context NextOpsAKS01"
             sh "kubectl apply -f bluewhale.yml"
