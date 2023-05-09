@@ -28,7 +28,8 @@ pipeline {
     stage('Deploy to Kubernetes') {
       steps {
         withCredentials([string(credentialsId: 'kubetext', variable: 'KUBECONFIG')]) {
-                    sh "echo 'KUBECONFIG' > config"
+                    sh "export KUBECONFIG=${KUBECONFIG}"
+                    sh "echo $KUBECONFIG > config"
                     sh "cat config"
         }
       }
