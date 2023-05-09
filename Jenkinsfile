@@ -1,16 +1,10 @@
 pipeline {
   environment {
-    dockerimagename = "narayanacharan/nginx-app:latest"
+    dockerimagename = "narayanacharan/nginx-app:${BUILD_NUMBER}"
     dockerImage = ""
   }
   agent any
-  stages {
-    stage('Build') {
-            steps {
-                echo "Building image version ${BUILD_NUMBER}"
-            }
-     }
-    
+  stages {    
     stage('Checkout Source') {
       agent {
                 docker {
