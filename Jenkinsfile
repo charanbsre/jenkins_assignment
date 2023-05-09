@@ -24,25 +24,13 @@ pipeline {
         }
       }
     }
-    
-    stage('Pushing Image') {
-      environment {
-               registryCredential = 'dhub'
-           }
-      steps{
-        script {
-          docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
-            dockerImage.push("latest")
-          }
-        }
-      }
-    }
+   
     stage('Deploy to Kubernetes') {
       steps {
         script {
             sh "hostname"
             sh "pwd"
-            sh "which az"
+            sh "which kubectl"
             sh "/usr/local/bin/az --version"
             sh "/usr/bin/az --version"
             sh "az login --service-principal -u 1ee02188-99db-424b-bf71-11772c7da4c5 -p Mfj8Q~SEeIdynNyTCCuKrQdfAa15i5BdRCzTEaFV --tenant 9085ff8c-8807-4ff8-a403-ea470525cda6"
