@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    dockerimagename = "narayanacharan/react-app-00"
+    dockerimagename = "narayanacharan/nginx-app:latest"
     dockerImage = ""
   }
   agent any
@@ -21,6 +21,19 @@ pipeline {
       steps{
         script {
           dockerImage = docker.build dockerimagename
+        }
+      }
+    }
+    
+    stage('Pushing Image') {
+      environment {
+               registryCredential = 'dhub'
+           }
+      steps{
+        script {
+          docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
+            dockerImage.push("latest")
+          }
         }
       }
     }
