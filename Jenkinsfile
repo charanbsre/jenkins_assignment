@@ -27,7 +27,7 @@ pipeline {
    
     stage('Deploy to Kubernetes') {
       steps {
-        withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
+        withCredentials([azureKeyVaultSecret(credentialsId: 'kubeconfig-secret', keyVaultUri: 'https://nextopsakv01.vault.azure.net', secretName: 'kubeconfig-secret', version: '1', variable: 'KUBECONFIG')]) {
                     sh "export KUBECONFIG=${KUBECONFIG}"
                     sh "kubectl --kubeconfig=${KUBECONFIG} apply -f hellowhale.yml"
         }
