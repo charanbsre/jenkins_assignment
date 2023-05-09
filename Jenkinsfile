@@ -47,7 +47,7 @@ pipeline {
       steps {
         withCredentials([string(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
                     writeFile(file: 'kubeconfig', text: KUBECONFIG)
-                    sh "kubectl --kubeconfig=kubeconfig apply -f manifests/blue-deployment.yml"                 
+                    sh "kubectl --kubeconfig=kubeconfig apply -f blue-deployment.yml"                 
         }
       }
     }
@@ -56,7 +56,7 @@ pipeline {
       steps {
         withCredentials([string(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
                     writeFile(file: 'kubeconfig', text: KUBECONFIG)
-                    sh "kubectl --kubeconfig=kubeconfig apply -f manifests/green-deployment.yml"                 
+                    sh "kubectl --kubeconfig=kubeconfig apply -f green-deployment.yml"                 
         }
       }
     }
@@ -65,7 +65,7 @@ pipeline {
       steps {
         withCredentials([string(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
                     writeFile(file: 'kubeconfig', text: KUBECONFIG)
-                    sh "kubectl --kubeconfig=kubeconfig apply -f manifests/canary-deployment.yml"                 
+                    sh "kubectl --kubeconfig=kubeconfig apply -f canary-deployment.yml"                 
         }
       }
     }
