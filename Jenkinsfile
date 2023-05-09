@@ -28,12 +28,7 @@ pipeline {
     stage('Deploy to Kubernetes') {
       steps {
         withCredentials([string(credentialsId: 'kubetext', variable: 'KUBECONFIG')]) {
-                    sh '''
-                        mkdir -p /home/jenkins/.kube
-                        touch /home/jenkins/.kube/config
-                        echo 'kubetext' > /home/jenkins/.kube/config
-                        kubectl apply -f bluewhale.yml
-                    '''
+                    sh 'kubectl --kubeconfig=$KUBECONFIG apply -f bluewhale.yml'
         }
       }
     }
