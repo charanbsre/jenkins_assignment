@@ -2,33 +2,24 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: my-app-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
   - host: my-app.nextopsvideos.com
     http:
       paths:
-      - path: /blue
+      - path: /
         pathType: Prefix
         backend:
           service:
             name: my-app-blue
             port:
               number: 80
-      - path: /green
+      - path: /
         pathType: Prefix
         backend:
           service:
             name: my-app-green
-            port:
-              number: 80
-      - path: /canary
-        pathType: Prefix
-        backend:
-          service:
-            name: my-app-canary
             port:
               number: 80
 ---
@@ -37,11 +28,7 @@ kind: Ingress
 metadata:
   name: my-app-canary-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/canary: "true"
-    nginx.ingress.kubernetes.io/canary-by-header: "user-agent"
-    nginx.ingress.kubernetes.io/canary-by-header-value: "canary"
-    nginx.ingress.kubernetes.io/canary-by-header-mode: "exact"
     nginx.ingress.kubernetes.io/canary-weight: "10"
 spec:
   ingressClassName: nginx
@@ -49,39 +36,11 @@ spec:
   - host: my-app.nextopsvideos.com
     http:
       paths:
-      - path: /canary
+      - path: /
         pathType: Prefix
         backend:
           service:
             name: my-app-canary
             port:
               number: 80
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: my-app-blue-green-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/canary: "false"
-    nginx.ingress.kubernetes.io/canary-weight: "0"
-spec:
-  ingressClassName: nginx
-  rules:
-  - host: my-app.nextopsvideos.com
-    http:
-      paths:
-      - path: /blue
-        pathType: Prefix
-        backend:
-          service:
-            name: my-app-blue
-            port:
-              number: 80
-      - path: /green
-        pathType: Prefix
-        backend:
-          service:
-            name: my-app-green
-            port:
-              number: 80
+            
