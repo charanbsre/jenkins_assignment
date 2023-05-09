@@ -1,20 +1,20 @@
+def previousBuildNumber = currentBuild.getPreviousBuild()?.getNumber()
 pipeline {
   environment {
-    dockerimagename = "narayanacharan/react-app-00"
+    dockerimagename = "narayanacharan/nginx-app:${BUILD_NUMBER}"
     dockerImage = ""
   }
-  agent none
+  agent any
   stages {
     stage('Checkout Source') {
       agent {
                 docker {
-                    image 'narayanacharan/jenkins-slave:3.0'
-                    label 'java-docker-slave'
-                    args '-v $HOME/.kube/config:/root/.kube/config'
+                    image 'narayanacharan/jenkins-slave:7.0'
+                    label 'java-docker-slave'                    
                 }
       }
       steps {
-          git credentialsId: 'github', url: 'https://github.com//charanbsre/jenkins_assignment.git'
+          git credentialsId: 'github', branch: 'dev', url: 'https://github.com//charanbsre/jenkins_assignment.git'
       }
     }
     
@@ -38,14 +38,35 @@ pipeline {
         }
       }
     }
-    stage('Deploy to Kubernetes') {
-      steps {        
-          kubernetesDeploy(
-            kubeconfigId: 'kubeconfig',
-            configs: 'hellowhale.yml',
-            enableConfigSubstitution: true,
-            recreate: true
-          )        
+   
+    stage('Deploy Blue') {
+      when {
+                branch 'master'
+                changeset "refs/heads/master"
+      }
+      steps {
+        withCredentials([string(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
+                    writeFile(file: 'kubeconfig', text: KUBECONFIG)
+                    sh "kubectl --kubeconfig=kubeconfig apply -f blue-deployment.yml"                 
+        }
+      }
+    }
+
+    stage('Deploy Green') {
+      steps {
+        withCredentials([string(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
+                    writeFile(file: 'kubeconfig', text: KUBECONFIG)
+                    sh "kubectl --kubeconfig=kubeconfig apply -f green-deployment.yml"                 
+        }
+      }
+    }
+
+    stage('Deploy Canary') {
+      steps {
+        withCredentials([string(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
+                    writeFile(file: 'kubeconfig', text: KUBECONFIG)
+                    sh "kubectl --kubeconfig=kubeconfig apply -f canary-deployment.yml"                 
+        }
       }
     }
   }
