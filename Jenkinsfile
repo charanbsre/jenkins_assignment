@@ -30,7 +30,7 @@ pipeline {
         withCredentials([string(credentialsId: 'kubetext', variable: 'KUBECONFIG')]) {
                     sh '''
                         mkdir -p ~/.kube
-                        export KUBECONFIG=${KUBECONFIG}
+                        echo KUBECONFIG > ~/.kube/config
                         kubectl apply -f bluewhale.yml
                     '''
         }
