@@ -28,7 +28,8 @@ pipeline {
     stage('Deploy to Kubernetes') {
       steps {
         withCredentials([string(credentialsId: 'kubetext', variable: 'KUBECONFIG')]) {
-                    sh 'kubectl --kubeconfig=$KUBECONFIG apply -f bluewhale.yml'
+                    sh "echo 'KUBECONFIG' > config"
+                    sh "cat config"
         }
       }
     }
