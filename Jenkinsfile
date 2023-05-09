@@ -1,10 +1,17 @@
+def previousBuildNumber = currentBuild.getPreviousBuild()?.getNumber()
 pipeline {
   environment {
     dockerimagename = "narayanacharan/nginx-app:${BUILD_NUMBER}"
     dockerImage = ""
   }
   agent any
-  stages {    
+  stages {
+    stage('Build') {
+            steps {
+                echo "current build number is ${BUILD_NUMBER}"
+              echo "previous build number is ${previousBuildNumber}"
+            }
+        }
     stage('Checkout Source') {
       agent {
                 docker {
