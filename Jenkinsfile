@@ -13,10 +13,6 @@ pipeline {
                     label 'java-docker-slave'                    
                 }
       }
-      when {
-                branch 'dev'
-                changeset "refs/heads/dev"
-      }
       steps {
           git credentialsId: 'github', branch: 'dev', url: 'https://github.com//charanbsre/jenkins_assignment.git'
       }
@@ -57,10 +53,6 @@ pipeline {
     }
 
     stage('Deploy Green') {
-      when {
-                branch 'dev'
-                changeset "refs/heads/dev"
-      }
       steps {
         withCredentials([string(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
                     writeFile(file: 'kubeconfig', text: KUBECONFIG)
@@ -70,10 +62,6 @@ pipeline {
     }
 
     stage('Deploy Canary') {
-      when {
-                branch 'dev'
-                changeset "refs/heads/dev"
-      }
       steps {
         withCredentials([string(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
                     writeFile(file: 'kubeconfig', text: KUBECONFIG)
