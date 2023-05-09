@@ -27,15 +27,12 @@ pipeline {
    
     stage('Deploy to Kubernetes') {
       steps {
-        script {
-            sh "hostname"
-            sh "pwd"
-            sh "ls -ltr /usr/bin"
-            sh "ls -ltr /root/.kube"
-            sh "which kubectl"            
-            sh "kubectl config get-contexts"
-            sh "kubectl config set-context NextOpsAKS01"
-            sh "kubectl apply -f bluewhale.yml"
+        withCredentials([string(credentialsId: 'kubetext', variable: 'KUBECONFIG')]) {
+                    sh '''
+                        mkdir -p ~/.kube
+                        export KUBECONFIG=${KUBECONFIG}
+                        kubectl apply -f bluewhale.yml
+                    '''
         }
       }
     }
