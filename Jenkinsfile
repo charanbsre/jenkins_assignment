@@ -1,4 +1,8 @@
 pipeline {
+  environment {
+    dockerimagename = "narayanacharan/nginx-app:${BUILD_NUMBER}"
+    dockerImage = ""
+  }
   agent any
   stages {
     stage('Checkout Source') {
