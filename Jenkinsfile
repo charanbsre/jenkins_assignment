@@ -17,7 +17,7 @@ pipeline {
                 changeset "refs/heads/dev"
       }
       steps {
-          git credentialsId: 'github', branch: 'dev' url: 'https://github.com//charanbsre/jenkins_assignment.git'
+          git credentialsId: 'github', branch: 'dev', url: 'https://github.com//charanbsre/jenkins_assignment.git'
       }
     }
     
