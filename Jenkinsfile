@@ -29,7 +29,7 @@ pipeline {
       steps {
         withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
                     sh "export KUBECONFIG=${KUBECONFIG}"
-                    sh "kubectl --kubeconfig=${KUBECONFIG} apply -f bluewhale.yml"
+                    sh "kubectl --kubeconfig=${KUBECONFIG} apply -f hellowhale.yml"
         }
       }
     }
