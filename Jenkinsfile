@@ -29,8 +29,8 @@ pipeline {
       steps {
         withCredentials([string(credentialsId: 'kubetext', variable: 'KUBECONFIG')]) {
                     sh '''
-                        mkdir -p ~/.kube
-                        echo KUBECONFIG > ~/.kube/config
+                        mkdir -p /home/jenkins/.kube
+                        echo kubetext > /home/jenkins/.kube/config
                         kubectl apply -f bluewhale.yml
                     '''
         }
