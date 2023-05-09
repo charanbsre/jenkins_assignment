@@ -28,7 +28,6 @@ pipeline {
     stage('Deploy to Kubernetes') {
       steps {
         withCredentials([string(credentialsId: 'kubeconfig-secret', variable: 'KUBECONFIG')]) {
-                    sh "export KUBECONFIG=${KUBECONFIG}"
                     sh "kubectl --kubeconfig=${KUBECONFIG} apply -f hellowhale.yml"
         }
       }
