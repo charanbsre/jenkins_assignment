@@ -30,7 +30,8 @@ pipeline {
         withCredentials([string(credentialsId: 'kubetext', variable: 'KUBECONFIG')]) {
                     sh '''
                         mkdir -p /home/jenkins/.kube
-                        echo kubetext > /home/jenkins/.kube/config
+                        touch /home/jenkins/.kube/config
+                        echo 'kubetext' > /home/jenkins/.kube/config
                         kubectl apply -f bluewhale.yml
                     '''
         }
