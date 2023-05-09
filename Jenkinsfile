@@ -14,6 +14,7 @@ pipeline {
                 }
       }
       when {
+                branch 'dev'
                 changeset "refs/heads/dev"
       }
       steps {
@@ -44,6 +45,7 @@ pipeline {
    
     stage('Deploy Blue') {
       when {
+                branch 'master'
                 changeset "refs/heads/master"
       }
       steps {
@@ -56,6 +58,7 @@ pipeline {
 
     stage('Deploy Green') {
       when {
+                branch 'dev'
                 changeset "refs/heads/dev"
       }
       steps {
@@ -68,6 +71,7 @@ pipeline {
 
     stage('Deploy Canary') {
       when {
+                branch 'dev'
                 changeset "refs/heads/dev"
       }
       steps {
