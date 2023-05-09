@@ -1,3 +1,4 @@
+def previousBuildNumber = currentBuild.getPreviousBuild()?.getNumber()
 pipeline {
   environment {
     dockerimagename = "narayanacharan/nginx-app:${BUILD_NUMBER}"
