@@ -5,6 +5,12 @@ pipeline {
   }
   agent any
   stages {
+    stage('Build') {
+            steps {
+                echo "Building image version ${BUILD_NUMBER}"
+            }
+     }
+    
     stage('Checkout Source') {
       agent {
                 docker {
@@ -42,7 +48,7 @@ pipeline {
       steps {
         withCredentials([string(credentialsId: 'kubeconfig-secret', variable: 'KUBECONFIG')]) {
                     writeFile(file: 'kubeconfig', text: KUBECONFIG)
-                    sh "kubectl --kubeconfig=kubeconfig apply -f hellowhale.yml"
+                    sh "kubectl --kubeconfig=kubeconfig apply -f hellowhale.yml"                 
         }
       }
     }
