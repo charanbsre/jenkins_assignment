@@ -5,6 +5,7 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx
   rules:
   - host: my-app.nextopsvideos.com
     http:
@@ -15,21 +16,21 @@ spec:
           service:
             name: my-app-blue
             port:
-              name: http
+              number: 80
       - path: /green
         pathType: Prefix
         backend:
           service:
             name: my-app-green
             port:
-              name: http
+              number: 80
       - path: /canary
         pathType: Prefix
         backend:
           service:
             name: my-app-canary
             port:
-              name: http
+              number: 80
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -43,8 +44,9 @@ metadata:
     nginx.ingress.kubernetes.io/canary-by-header-mode: "exact"
     nginx.ingress.kubernetes.io/canary-weight: "10"
 spec:
+  ingressClassName: nginx
   rules:
-  - host: canary.my-app.nextopsvideos.com
+  - host: my-app.nextopsvideos.com
     http:
       paths:
       - path: /canary
@@ -53,7 +55,7 @@ spec:
           service:
             name: my-app-canary
             port:
-              name: http
+              number: 80
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -61,12 +63,10 @@ metadata:
   name: my-app-blue-green-ingress
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/canary: "true"
-    nginx.ingress.kubernetes.io/canary-by-header: "user-agent"
-    nginx.ingress.kubernetes.io/canary-by-header-value: "canary"
-    nginx.ingress.kubernetes.io/canary-by-header-mode: "exact"
+    nginx.ingress.kubernetes.io/canary: "false"
     nginx.ingress.kubernetes.io/canary-weight: "0"
 spec:
+  ingressClassName: nginx
   rules:
   - host: my-app.nextopsvideos.com
     http:
@@ -77,11 +77,11 @@ spec:
           service:
             name: my-app-blue
             port:
-              name: http
+              number: 80
       - path: /green
         pathType: Prefix
         backend:
           service:
             name: my-app-green
             port:
-              name: http
+              number: 80
