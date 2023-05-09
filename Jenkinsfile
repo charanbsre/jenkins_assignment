@@ -30,6 +30,7 @@ pipeline {
         script {
             sh "hostname"
             sh "pwd"
+            sh "ls -ltr /usr/bin"
             sh "ls -ltr /root/.kube"
             sh "which kubectl"            
             sh "kubectl config get-contexts"
