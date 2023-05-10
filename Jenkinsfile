@@ -14,7 +14,7 @@ pipeline {
                 }
       }
       steps {
-          git credentialsId: 'github', branch: 'dev', url: 'https://github.com//charanbsre/jenkins_assignment.git'
+          git credentialsId: 'github', url: 'https://github.com//charanbsre/jenkins_assignment.git'
       }
     }
     
