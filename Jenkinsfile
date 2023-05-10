@@ -1,8 +1,6 @@
-//Get the current build number
-CURRENT_BUILD=${BUILD_NUMBER}
 
 //Get the previous build number
-PREVIOUS_BUILD=$((${CURRENT_BUILD} - 1))
+//PREVIOUS_BUILD=$((${CURRENT_BUILD} - 1))
 
 pipeline {
   environment {
