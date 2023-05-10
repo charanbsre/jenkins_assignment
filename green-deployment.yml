@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: my-app
-        image: narayanacharan/nginx-app:150
+        image: narayanacharan/nginx-app:latest
         ports:
         - containerPort: 8000
 ---

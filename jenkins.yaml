@@ -1,0 +1,247 @@
+credentials:
+  system:
+    domainCredentials:
+    - credentials:
+      - usernamePassword:
+          id: "jenkins"
+          password: "{AQAAABAAAAAQ6e1zCgw02Y2Z2pM0QpFzyKl8MLGa5RcanVUdLkXc1Po=}"
+          scope: GLOBAL
+          username: "jenkins"
+      - usernamePassword:
+          id: "github"
+          password: "{AQAAABAAAAAQGTFSkuu2wWbwxy3j1XfYdoHSs3dUGOP2cLCwOmrEE7s=}"
+          scope: GLOBAL
+          username: "charanb.sre@gmail.com"
+      - usernamePassword:
+          id: "gittoken"
+          password: "{AQAAABAAAAAwGe1S7Aq3EwaYPYJ+YMPiKvgDbwQF7E8AF2hCWLPG8NMYbhRPxh//3nsg/1dSvWSmK6IISZSUqkJwn7jQVNlCcg==}"
+          scope: GLOBAL
+          username: "charanb.sre@gmail.com"
+      - usernamePassword:
+          id: "dhub"
+          password: "{AQAAABAAAAAQDolsAsycsEhdqDe0aNGYf48JSWTYKganKcabQ4eQUvE=}"
+          scope: GLOBAL
+          username: "narayanacharan"
+      - azure:
+          azureEnvironmentName: "Azure"
+          clientId: "1ee02188-99db-424b-bf71-11772c7da4c5"
+          clientSecret: "****"
+          id: "Azure-key-vault"
+          scope: GLOBAL
+          subscriptionId: "a355c32e-4a22-4b05-aab4-be236850fa6e"
+          tenant: "9085ff8c-8807-4ff8-a403-ea470525cda6"
+      - file:
+          description: "k8config"
+          fileName: "config"
+          id: "k8config"
+          scope: GLOBAL
+          secretBytes: "{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}"
+jenkins:
+  agentProtocols:
+  - "JNLP4-connect"
+  - "Ping"
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+  clouds:
+  - docker:
+      dockerApi:
+        connectTimeout: 60
+        dockerHost:
+          uri: "tcp://192.168.29.207:4243"
+        readTimeout: 60
+      exposeDockerHost: true
+      name: "docker"
+      templates:
+      - connector:
+          ssh:
+            sshKeyStrategy:
+              manuallyConfiguredSSHKey:
+                credentialsId: "jenkins"
+                sshHostKeyVerificationStrategy: "nonVerifyingKeyVerificationStrategy"
+        dockerTemplateBase:
+          cpuPeriod: 0
+          cpuQuota: 0
+          image: "narayanacharan/jenkins-slave:7.0"
+          pullCredentialsId: "dhub"
+        labelString: "java-docker-slave"
+        name: "java-docker-slave"
+        pullStrategy: PULL_ALWAYS
+        pullTimeout: 300
+        remoteFs: "/home/jenkins"
+  - kubernetes:
+      containerCap: 10
+      containerCapStr: "10"
+      credentialsId: "k8config"
+      jenkinsUrl: "https://c600-2405-201-c002-a988-20c-29ff-fe9f-229f.ngrok-free.app/"
+      name: "kubernetes"
+      serverUrl: "https://nextopsaks01-dns-g49pt1dh.hcp.eastus.azmk8s.io:443"
+      webSocket: true
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+  disableRememberMe: false
+  disabledAdministrativeMonitors:
+  - "jenkins.diagnostics.ControllerExecutorsNoAgents"
+  - "jenkins.diagnostics.ControllerExecutorsAgents"
+  - "hudson.diagnosis.ReverseProxySetupMonitor"
+  labelAtoms:
+  - name: "built-in"
+  - name: "java-docker-slave"
+  markupFormatter: "plainText"
+  mode: NORMAL
+  myViewsTabBar: "standard"
+  numExecutors: 2
+  primaryView:
+    all:
+      name: "all"
+  projectNamingStrategy: "standard"
+  quietPeriod: 5
+  remotingSecurity:
+    enabled: true
+  scmCheckoutRetryCount: 0
+  securityRealm:
+    local:
+      allowsSignup: false
+      enableCaptcha: false
+      users:
+      - id: "charan"
+        name: "Charan"
+        properties:
+        - "myView"
+        - preferredProvider:
+            providerId: "default"
+        - "timezone"
+        - mailer:
+            emailAddress: "charanb.sre@gmail.com"
+        - "apiToken"
+  slaveAgentPort: -1
+  updateCenter:
+    sites:
+    - id: "default"
+      url: "https://updates.jenkins.io/update-center.json"
+  views:
+  - all:
+      name: "all"
+  viewsTabBar: "standard"
+globalCredentialsConfiguration:
+  configuration:
+    providerFilter: "none"
+    typeFilter: "none"
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  gitHooks:
+    allowedOnAgents: false
+    allowedOnController: false
+  gitHostKeyVerificationConfiguration:
+    sshHostKeyVerificationStrategy: "knownHostsFileVerificationStrategy"
+  sSHD:
+    port: -1
+  scriptApproval:
+    approvedScriptHashes:
+    - "SHA512:3f205299bef2fe3329258a42f2c60d332cc35ccb41a3ca0512d7869c6aff4561ff708c48123b4f7c3dec33ccca30d54fb8b9b51b5bc7070f96236d11a3f0bdcb"
+unclassified:
+  azureKeyVault:
+    credentialID: "Azure-key-vault"
+    keyVaultURL: "https://nextopsakv01.vault.azure.net/"
+  buildDiscarders:
+    configuredBuildDiscarders:
+    - "jobBuildDiscarder"
+  buildStepOperation:
+    enabled: false
+  casCGlobalConfig:
+    configurationPath: "/home/charan/jcasc.yaml"
+  email-ext:
+    adminRequiredForTemplateTesting: false
+    allowUnregisteredEnabled: false
+    charset: "UTF-8"
+    debugMode: false
+    defaultBody: |-
+      $PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:
+
+      Check console output at $BUILD_URL to view the results.
+    defaultContentType: "text/plain"
+    defaultSubject: "$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!"
+    defaultTriggerIds:
+    - "hudson.plugins.emailext.plugins.trigger.FailureTrigger"
+    maxAttachmentSize: -1
+    maxAttachmentSizeMb: -1
+    precedenceBulk: false
+    watchingEnabled: false
+  enrichedSummaryConfig:
+    enrichedSummaryEnabled: false
+    httpClientDelayBetweenRetriesInSeconds: 1
+    httpClientMaxRetries: 3
+    httpClientTimeoutInSeconds: 1
+  fingerprints:
+    fingerprintCleanupDisabled: false
+    storage: "file"
+  ghprbTrigger:
+    autoCloseFailedPullRequests: false
+    cron: "H/5 * * * *"
+    extensions:
+    - ghprbSimpleStatus:
+        addTestResults: false
+        showMatrixStatus: false
+    githubAuth:
+    - credentialsId: "gittoken"
+      description: "TokenAuth"
+      id: "1ea344cd-6163-4ce6-99ef-23cd828947fb"
+      secret: "{AQAAABAAAAAQaDVNjPeN61yTacIyEh2DZkhbByzzFcxF/nFDICMY8VE=}"
+      serverAPIUrl: "https://api.github.com"
+    manageWebhooks: true
+    okToTestPhrase: ".*ok\\W+to\\W+test.*"
+    requestForTestingPhrase: "Can one of the admins verify this patch?"
+    retestPhrase: ".*test\\W+this\\W+please.*"
+    skipBuildPhrase: ".*\\[skip\\W+ci\\].*"
+    useComments: false
+    useDetailedComments: false
+    whitelistPhrase: ".*add\\W+to\\W+whitelist.*"
+  gitHubConfiguration:
+    apiRateLimitChecker: ThrottleForNormalize
+  gitHubPluginConfig:
+    hookUrl: "http://192.168.29.207:8080/github-webhook/"
+  globalTimeOutConfiguration:
+    operations:
+    - "abortOperation"
+    overwriteable: false
+  injectionConfig:
+    allowUntrusted: false
+    enabled: false
+    enforceUrl: false
+    injectCcudExtension: false
+    injectMavenExtension: false
+  junitTestResultStorage:
+    storage: "file"
+  location:
+    adminAddress: "address not configured yet <nobody@nowhere>"
+    url: "https://c600-2405-201-c002-a988-20c-29ff-fe9f-229f.ngrok-free.app/"
+  mailer:
+    charset: "UTF-8"
+    useSsl: false
+    useTls: false
+  pollSCM:
+    pollingThreadCount: 10
+  scmGit:
+    addGitTagAction: false
+    allowSecondFetch: false
+    createAccountBasedOnEmail: false
+    disableGitToolChooser: false
+    hideCredentials: false
+    showEntireCommitSummaryInChanges: false
+    useExistingAccountWithSameEmail: false
+  timestamper:
+    allPipelines: false
+    elapsedTimeFormat: "'<b>'HH:mm:ss.S'</b> '"
+    systemTimeFormat: "'<b>'HH:mm:ss'</b> '"
+tool:
+  git:
+    installations:
+    - home: "git"
+      name: "Default"
+  mavenGlobalConfig:
+    globalSettingsProvider: "standard"
+    settingsProvider: "standard"

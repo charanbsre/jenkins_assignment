@@ -29,7 +29,7 @@ metadata:
   name: my-app-canary-ingress
   annotations:
     nginx.ingress.kubernetes.io/canary: "true"
-    nginx.ingress.kubernetes.io/canary-weight: "100"
+    nginx.ingress.kubernetes.io/canary-weight: "33"
 spec:
   ingressClassName: nginx
   rules:
