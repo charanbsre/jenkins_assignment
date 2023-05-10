@@ -66,6 +66,7 @@ pipeline {
         withCredentials([string(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
                     writeFile(file: 'kubeconfig', text: KUBECONFIG)
                     // sh "sed -i 's|image:v${PREVIOUS_BUILD}|image:v${CURRENT_BUILD}/g' green-deployment.yml"
+                    sh "kubectl --kubeconfig=kubeconfig apply -f ingress.yml"            
                     sh "kubectl --kubeconfig=kubeconfig apply -f green-deployment.yml"                 
         }
       }
