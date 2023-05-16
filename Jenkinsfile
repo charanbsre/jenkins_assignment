@@ -48,10 +48,6 @@ pipeline {
     
     //Deployment to blue only when changes detected in master branch, but this pipeline only gets triggered on PR.
     stage('Deploy Blue') {
-      when {
-                branch 'master'
-                changeset "refs/heads/master"
-      }
       steps {
         withCredentials([string(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
                     writeFile(file: 'kubeconfig', text: KUBECONFIG)
