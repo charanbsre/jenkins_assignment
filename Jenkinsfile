@@ -1,5 +1,5 @@
 
-//Get the previous build number//
+//Get the previous build number
 //PREVIOUS_BUILD=$((${CURRENT_BUILD} - 1))
 
 pipeline {
